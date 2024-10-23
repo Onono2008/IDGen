@@ -26,14 +26,17 @@ def generar_direccion():
     ciudad = random.choice(['Madrid', 'Barcelona', 'Valencia', 'Sevilla', 'Bilbao'])
     return f"{random.choice(calles)} {numero}, {ciudad}"
 
-# Guardar la información en un archivo
+# Guardar la información en un archivo cuyo nombre sea el nombre y el primer apellido
 def guardar_en_archivo(patron, nombre, apellidos, direccion):
-    with open('datos_falsos.txt', 'w') as archivo:
+    # Crear el nombre del archivo solo con el nombre y el primer apellido
+    nombre_archivo = f"{nombre}_{apellidos[0]}.txt"
+    
+    with open(nombre_archivo, 'w') as archivo:
         archivo.write(f"Patrón: {patron}\n")
         archivo.write(f"Nombre: {nombre}\n")
         archivo.write(f"Apellidos: {apellidos[0]} {apellidos[1]}\n")
         archivo.write(f"Dirección: {direccion}\n")
-    print("Datos guardados en 'datos_falsos.txt'.")
+    print(f"Datos guardados en '{nombre_archivo}'.")
 
 # Función principal
 def main():
